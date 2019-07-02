@@ -1,3 +1,14 @@
+# python
 __pycache__
 
+# vscode
 .vscode
+
+# terraform
+.terraform
+*.backup
+*.tfstate
+*.tfvars
+
+# ddant specifics
+ddant-vpc-*.xml

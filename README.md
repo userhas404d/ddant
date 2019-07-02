@@ -51,6 +51,7 @@ There are other tools like [cloudcraft](https://cloudcraft.co/) that will do thi
 ## ToDo
 
 - [ ] dynamically size container and group cells based on cell content (ie. long sg lists)
+- [ ] include subnets
 - [ ] proper positioning
 - [ ] build test env
-- [ ] build in targeting by vpc id
+- [x] build in targeting by vpc id

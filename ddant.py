@@ -123,7 +123,7 @@ def generate_sgs_cells(security_groups):
         container_cell = cell(
             count=count,
             value="",
-            width=890,
+            width=group_cell['width'],
             height=490
             ).get()
 
@@ -132,7 +132,7 @@ def generate_sgs_cells(security_groups):
             value=security_group,
             xpos=30,
             ypos=40,
-            width=490,
+            width=890,
             height=110,
             template_path='SG_Description.html'
             ).get()
@@ -196,14 +196,14 @@ def generate_nacl_cells(network_acls):
             value="",
             xpos=xpos,
             ypos=ypos,
-            width=930,
+            width=1170,
             height=490
         ).get()
 
         container_cell = cell(
                 count=count,
                 value="",
-                width=930,
+                width=group_cell['width'],
                 height=490
                 ).get()
 
@@ -212,7 +212,7 @@ def generate_nacl_cells(network_acls):
             value=nacl,
             xpos=30,
             ypos=40,
-            width=490,
+            width=930,
             height=110,
             template_path='NACL_Description.html'
             ).get()
@@ -273,14 +273,14 @@ def generage_route_table_cells(route_tables):
             value="",
             xpos=xpos,
             ypos=ypos,
-            width=500,
+            width=710,
             height=390
         ).get()
 
         container_cell = cell(
                 count=count,
                 value="",
-                width=500,
+                width=group_cell['width'],
                 height=390
                 ).get()
 
@@ -289,7 +289,7 @@ def generage_route_table_cells(route_tables):
             value=route,
             xpos=30,
             ypos=40,
-            width=440,
+            width=710,
             height=110,
             template_path='Route_Description.html'
             ).get()
