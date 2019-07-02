@@ -1,0 +1,23 @@
+<h1 style="font-size: 18px">Outbound<br><br>
+    <table align="left" style="font-size: 18px ; border: 1px solid rgb(0 , 0 , 0) ; border-collapse: collapse"
+        cellpadding="5" border="1">
+        <tbody style="font-size: 18px">
+            <tr style="font-size: 18px">
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">From</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">To</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">Protocol</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">IP Range(s)</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">SG(s)</span></td>
+            </tr>
+            {% for IpPermission in IpPermissionsEgress %}
+            <tr style="font-size: 18px">
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{IpPermissions.FromPort}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{IpPermissions.ToPort}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{IpPermission.IpProtocol}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{% for IpRange in IpPermission.IpRanges %}{{ IpRange.CidrIp }}<br> {% endfor %}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{% for SG in IpPermission.UserIdGroupPairs %}{{ SG.GroupId }}<br> {% endfor %}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</h1>

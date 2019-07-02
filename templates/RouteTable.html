@@ -1,0 +1,21 @@
+<h1 style="font-size: 18px">Routes<br><br>
+    <table align="left" style="font-size: 18px ; border: 1px solid rgb(0 , 0 , 0) ; border-collapse: collapse"
+        cellpadding="5" border="1">
+        <tbody style="font-size: 18px">
+            <tr style="font-size: 18px">
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">Destination Cidr Block</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">GatewayId</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">Origin</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; font-size: 18px">State</span></td>
+            </tr>
+            {% for Route in Routes %}
+            <tr style="font-size: 18px">
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{Route.DestinationCidrBlock}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{Route.GatewayId}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{Route.Origin}}</span></td>
+                <td style="font-size: 18px"><span style="font-weight: normal ; text-align: center ; font-size: 12px">{{Route.State}}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</h1>

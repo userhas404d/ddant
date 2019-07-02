@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="3658" dy="1504" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!--security group meta container arrow-->
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontSize=18;" edge="1" parent="1" source="NxtYPEL7PWnEgCcOytY6-28">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="-0.33333333333303017" y="1070" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-7" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="320.5" y="299" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-8" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="456.5" y="299" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-10" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="730" y="270"/>
+                    <mxPoint x="730" y="248"/>
+                </Array>
+                <mxPoint x="640" y="270" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-11" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="730" y="300"/>
+                    <mxPoint x="730" y="390"/>
+                </Array>
+                <mxPoint x="640" y="300" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-13" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="816" y="500"/>
+                    <mxPoint x="739" y="500"/>
+                </Array>
+                <mxPoint x="816" y="447" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" source="6d17579d09794128-12" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="610" y="319" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-14" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                    <mxPoint x="860" y="574"/>
+                    <mxPoint x="860" y="574"/>
+                </Array>
+                <mxPoint x="762.5" y="574" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-35" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="449" y="573.5" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" target="6d17579d09794128-12" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="303.5" y="466.5" as="sourcePoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="6d17579d09794128-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;" parent="1" source="6d17579d09794128-35" edge="1">
+            <mxGeometry relative="1" as="geometry">
+                <mxPoint x="270" y="504" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-7" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.virtual_private_cloud;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+            <mxGeometry x="-739" y="56" width="139" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-8" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.internet_gateway;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+            <mxGeometry x="539" y="60" width="69" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-9" value="Internet Gateway" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+            <mxGeometry x="467.5" y="136" width="212" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-14" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.router;fillColor=#F58534;gradientColor=none;fontSize=18;" vertex="1" parent="1">
+            <mxGeometry x="539" y="203" width="69" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-15" value="Router&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+            <mxGeometry x="467.5" y="275" width="212" height="20" as="geometry"/>
+        </mxCell>
+        <!--Arrow from router to internet gateway-->
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-21" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="NxtYPEL7PWnEgCcOytY6-14" target="NxtYPEL7PWnEgCcOytY6-9">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+                <mxPoint x="463.5" y="206" as="sourcePoint"/>
+                <mxPoint x="513.5" y="156" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <!-- Start of Security Groups -->
+        <!--Secrutiy group meta container-->
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-28" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+            <mxGeometry x="870.5" y="1450" width="{{ security_group_cells.0.group.width * 4 }}" height="{{ (security_group_cells|length/3 * security_group_cells.0.group.height) + 400 }}" as="geometry"/>
+        </mxCell>
+        <!--end security group container-->
+        {% for security_group_cell in security_group_cells %}
+        <!-- Start of Security Group -->
+        <!-- Security Group Grouping -->
+        <mxCell id="{{security_group_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="{{security_group_cell.group.xpos}}" y="{{security_group_cell.group.ypos}}" width="{{security_group_cell.group.width}}" height="{{security_group_cell.group.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Container -->
+        <mxCell id="{{security_group_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" vertex="1" connectable="0" parent="{{security_group_cell.group.id}}">
+            <mxGeometry width="{{security_group_cell.container.width}}" height="{{security_group_cell.container.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Description Text -->
+        <mxCell id="{{security_group_cell.description_text.id}}" value="{{security_group_cell.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.description_text.xpos}}" y="{{security_group_cell.description_text.ypos}}" width="{{security_group_cell.description_text.width}}" height="{{security_group_cell.description_text.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Inbound Rules -->
+        <mxCell id="{{security_group_cell.inbound_rules.id}}" value="{{security_group_cell.inbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.inbound_rules.xpos}}" y="{{security_group_cell.inbound_rules.ypos}}" width="{{security_group_cell.inbound_rules.width}}" height="{{security_group_cell.inbound_rules.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Outbound Rules -->
+        <mxCell id="{{security_group_cell.outbound_rules.id}}" value="{{security_group_cell.outbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.outbound_rules.xpos}}" y="{{security_group_cell.outbound_rules.ypos}}" width="{{security_group_cell.outbound_rules.width}}" height="{{security_group_cell.outbound_rules.height}}" as="geometry"/>
+        </mxCell>
+        <!-- End of Security Group -->
+        {% endfor %}
+        <!-- End of Security Groups -->
+        <!--start NACL -->
+        {% for nacl in nacl_cells %}
+        <mxCell id="{{nacl.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="{{nacl.group.xpos}}" y="{{nacl.group.ypos}}" width="{{nacl.group.width}}" height="{{nacl.group.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{nacl.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="{{nacl.group.id}}">
+            <mxGeometry width="{{nacl.container.width}}" height="{{nacl.container.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{nacl.description_text.id}}" value="{{nacl.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=18;" vertex="1" parent="{{nacl.group.id}}">
+            <mxGeometry x="{{nacl.description_text.xpos}}" y="{{nacl.description_text.ypos}}" width="{{nacl.description_text.width}}" height="{{nacl.description_text.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{nacl.ingress_rules.id}}" value="{{nacl.ingress_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=18;" vertex="1" parent="{{nacl.group.id}}">
+            <mxGeometry x="{{nacl.ingress_rules.xpos}}" y="{{nacl.ingress_rules.ypos}}" width="{{nacl.ingress_rules.width}}" height="{{nacl.ingress_rules.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{nacl.egress_rules.id}}" value="{{nacl.egress_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=18;" vertex="1" parent="{{nacl.group.id}}">
+            <mxGeometry x="{{nacl.egress_rules.xpos}}" y="{{nacl.egress_rules.ypos}}" width="{{nacl.egress_rules.width}}" height="{{nacl.egress_rules.height}}" as="geometry"/>
+        </mxCell>
+        {% endfor %}
+        <!--End NACL-->
+        <!--Start Route Table -->
+        {% for route_table in route_table_cells %}
+        <mxCell id="{{route_table.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="{{route_table.group.xpos}}" y="{{route_table.group.ypos}}" width="{{route_table.group.width}}" height="{{route_table.group.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{route_table.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="{{route_table.group.id}}">
+            <mxGeometry width="{{route_table.container.width}}" height="{{route_table.container.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{route_table.description_text.id}}" value="{{route_table.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=18;" vertex="1" parent="{{route_table.group.id}}">
+            <mxGeometry x="{{route_table.description_text.xpos}}" y="{{route_table.description_text.ypos}}" width="{{route_table.description_text.width}}" height="{{route_table.description_text.height}}" as="geometry"/>
+        </mxCell>
+        <mxCell id="{{route_table.routes.id}}" value="{{route_table.routes.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=18;" vertex="1" parent="{{route_table.group.id}}">
+            <mxGeometry x="{{route_table.routes.xpos}}" y="{{route_table.routes.ypos}}" width="{{route_table.routes.width}}" height="{{route_table.routes.height}}" as="geometry"/>
+        </mxCell>
+        {% endfor %}
+         <!--End Route Table -->
+    </root>
+</mxGraphModel>
