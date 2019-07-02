@@ -321,25 +321,68 @@ def describe_subnets(**kwargs):
         **kwargs,
         DryRun=False
     )
-    return response
+    return response['Subnets']
 
+
+def generate_subnet_cells(subnets):
+    """Generate subnet cells."""
+    count = 0
+    xpos = 0
+    ypos = 0
+    subnet_cells = []
+
+    for subnet in subnets:
+
+        group_cell = cell(
+            count=count,
+            value="",
+            xpos=xpos,
+            ypos=ypos,
+            width=710,
+            height=390
+        ).get()
+
+        container_cell = cell(
+                count=count,
+                value="",
+                width=group_cell['width'],
+                height=390
+                ).get()
+
+        description_text_cell = cell(
+            count=count,
+            value=subnet,
+            xpos=30,
+            ypos=40,
+            width=710,
+            height=110,
+            template_path='Subnet_Description.html'
+            ).get()
+
+        subnet_cell = {
+            "group": group_cell,
+            "container": container_cell,
+            "description_text": description_text_cell
+        }
+        subnet_cells.append(subnet_cell)
+
+    return subnet_cells
 
 def render_drawing(**kwargs):
     """Renders Completed Drawing."""
 
-    sgs_cells = wrap_cells(generate_sgs_cells(
-        describe_security_groups(**kwargs)))
-
-    nacl_cells = generate_nacl_cells(describe_network_acls(**kwargs))
-
-    route_table_cells = generage_route_table_cells(
-        describe_routes(**kwargs))
-
     template = render_template(
+
         'DrawioTemplate.xml',
-        security_group_cells=sgs_cells,
-        nacl_cells=nacl_cells,
-        route_table_cells=route_table_cells
+
+        security_group_cells=wrap_cells(generate_sgs_cells(
+        describe_security_groups(**kwargs))),
+
+        nacl_cells=generate_nacl_cells(describe_network_acls(**kwargs)),
+
+        route_table_cells=generage_route_table_cells(describe_routes(**kwargs)),
+
+        subnet_cells=generate_subnet_cells(describe_subnets(**kwargs))
         )
     return template
 

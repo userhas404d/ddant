@@ -12,3 +12,4 @@ __pycache__
 
 # ddant specifics
 ddant-vpc-*.xml
+ddant-*.json

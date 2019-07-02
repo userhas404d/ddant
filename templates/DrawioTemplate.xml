@@ -97,37 +97,6 @@
                 <mxPoint x="513.5" y="156" as="targetPoint"/>
             </mxGeometry>
         </mxCell>
-        <!-- Start of Security Groups -->
-        <!--Secrutiy group meta container-->
-        <mxCell id="NxtYPEL7PWnEgCcOytY6-28" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
-            <mxGeometry x="870.5" y="1450" width="{{ security_group_cells.0.group.width * 4 }}" height="{{ (security_group_cells|length/3 * security_group_cells.0.group.height) + 400 }}" as="geometry"/>
-        </mxCell>
-        <!--end security group container-->
-        {% for security_group_cell in security_group_cells %}
-        <!-- Start of Security Group -->
-        <!-- Security Group Grouping -->
-        <mxCell id="{{security_group_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
-            <mxGeometry x="{{security_group_cell.group.xpos}}" y="{{security_group_cell.group.ypos}}" width="{{security_group_cell.group.width}}" height="{{security_group_cell.group.height}}" as="geometry"/>
-        </mxCell>
-        <!-- Security Group Container -->
-        <mxCell id="{{security_group_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" vertex="1" connectable="0" parent="{{security_group_cell.group.id}}">
-            <mxGeometry width="{{security_group_cell.container.width}}" height="{{security_group_cell.container.height}}" as="geometry"/>
-        </mxCell>
-        <!-- Security Group Description Text -->
-        <mxCell id="{{security_group_cell.description_text.id}}" value="{{security_group_cell.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
-            <mxGeometry x="{{security_group_cell.description_text.xpos}}" y="{{security_group_cell.description_text.ypos}}" width="{{security_group_cell.description_text.width}}" height="{{security_group_cell.description_text.height}}" as="geometry"/>
-        </mxCell>
-        <!-- Security Group Inbound Rules -->
-        <mxCell id="{{security_group_cell.inbound_rules.id}}" value="{{security_group_cell.inbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
-            <mxGeometry x="{{security_group_cell.inbound_rules.xpos}}" y="{{security_group_cell.inbound_rules.ypos}}" width="{{security_group_cell.inbound_rules.width}}" height="{{security_group_cell.inbound_rules.height}}" as="geometry"/>
-        </mxCell>
-        <!-- Security Group Outbound Rules -->
-        <mxCell id="{{security_group_cell.outbound_rules.id}}" value="{{security_group_cell.outbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
-            <mxGeometry x="{{security_group_cell.outbound_rules.xpos}}" y="{{security_group_cell.outbound_rules.ypos}}" width="{{security_group_cell.outbound_rules.width}}" height="{{security_group_cell.outbound_rules.height}}" as="geometry"/>
-        </mxCell>
-        <!-- End of Security Group -->
-        {% endfor %}
-        <!-- End of Security Groups -->
         <!--start NACL -->
         {% for nacl in nacl_cells %}
         <mxCell id="{{nacl.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
@@ -163,5 +132,51 @@
         </mxCell>
         {% endfor %}
          <!--End Route Table -->
+        <!-- Start of Security Groups -->
+        <!--Secrutiy group meta container-->
+        <mxCell id="NxtYPEL7PWnEgCcOytY6-28" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+            <mxGeometry x="870.5" y="1450" width="{{ security_group_cells.0.group.width * 4 }}" height="{{ (security_group_cells|length/3 * security_group_cells.0.group.height) + 400 }}" as="geometry"/>
+        </mxCell>
+        <!--end security group container-->
+        {% for security_group_cell in security_group_cells %}
+        <!-- Start of Security Group -->
+        <!-- Security Group Grouping -->
+        <mxCell id="{{security_group_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="{{security_group_cell.group.xpos}}" y="{{security_group_cell.group.ypos}}" width="{{security_group_cell.group.width}}" height="{{security_group_cell.group.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Container -->
+        <mxCell id="{{security_group_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" vertex="1" connectable="0" parent="{{security_group_cell.group.id}}">
+            <mxGeometry width="{{security_group_cell.container.width}}" height="{{security_group_cell.container.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Description Text -->
+        <mxCell id="{{security_group_cell.description_text.id}}" value="{{security_group_cell.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.description_text.xpos}}" y="{{security_group_cell.description_text.ypos}}" width="{{security_group_cell.description_text.width}}" height="{{security_group_cell.description_text.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Inbound Rules -->
+        <mxCell id="{{security_group_cell.inbound_rules.id}}" value="{{security_group_cell.inbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.inbound_rules.xpos}}" y="{{security_group_cell.inbound_rules.ypos}}" width="{{security_group_cell.inbound_rules.width}}" height="{{security_group_cell.inbound_rules.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Outbound Rules -->
+        <mxCell id="{{security_group_cell.outbound_rules.id}}" value="{{security_group_cell.outbound_rules.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{security_group_cell.group.id}}">
+            <mxGeometry x="{{security_group_cell.outbound_rules.xpos}}" y="{{security_group_cell.outbound_rules.ypos}}" width="{{security_group_cell.outbound_rules.width}}" height="{{security_group_cell.outbound_rules.height}}" as="geometry"/>
+        </mxCell>
+        <!-- End of Security Group -->
+        {% endfor %}
+        <!-- End of Security Groups -->
+        <!-- Start Subnets -->
+        {% for subnet_cell in subnet_cells %}
+        <mxCell id="{{subnet_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="{{subnet_cell.group.xpos}}" y="{{subnet_cell.group.ypos}}" width="{{subnet_cell.group.width}}" height="{{subnet_cell.group.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Container -->
+        <mxCell id="{{subnet_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" vertex="1" connectable="0" parent="{{subnet_cell.group.id}}">
+            <mxGeometry width="{{subnet_cell.container.width}}" height="{{subnet_cell.container.height}}" as="geometry"/>
+        </mxCell>
+        <!-- Security Group Description Text -->
+        <mxCell id="{{subnet_cell.description_text.id}}" value="{{subnet_cell.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{subnet_cell.group.id}}">
+            <mxGeometry x="{{subnet_cell.description_text.xpos}}" y="{{subnet_cell.description_text.ypos}}" width="{{subnet_cell.description_text.width}}" height="{{subnet_cell.description_text.height}}" as="geometry"/>
+        </mxCell>
+        {% endfor %}
+        <!-- End Subnets -->
     </root>
 </mxGraphModel>
