@@ -50,11 +50,11 @@ There are other tools like [cloudcraft](https://cloudcraft.co/) that will do thi
 
 ## ToDo
 
-- [ ] dynamically size container and group cells based on cell content (ie. long sg lists)
-- [x] build test env
-- [x] build in targeting by vpc id
-- [ ] include subnets
+- [ ] associate the NACLs and route tables
 - [ ] proper positioning
 - [ ] group security groups by subnet
-- [ ] associate the NACLs and route tables
+- [ ] dynamically size cells based on cell content (ie. long sg rule lists)
 - [ ] include resource tags in drawing
+- [x] build test env
+- [x] build in targeting by vpc id
+- [x] include subnets
