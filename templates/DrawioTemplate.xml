@@ -165,14 +165,22 @@
         <!-- End of Security Groups -->
         <!-- Start Subnets -->
         {% for subnet_cell in subnet_cells %}
+        <!--Arrow from subnet to route table-->
+        <mxCell id="{{subnet_cell.arrow.id}}" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="{{subnet_cell.group.id}}" target="{{subnet_cell.arrow.target}}">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+                <mxPoint x="463.5" y="206" as="sourcePoint"/>
+                <mxPoint x="513.5" y="156" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <!-- End route table arrow -->
         <mxCell id="{{subnet_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
             <mxGeometry x="{{subnet_cell.group.xpos}}" y="{{subnet_cell.group.ypos}}" width="{{subnet_cell.group.width}}" height="{{subnet_cell.group.height}}" as="geometry"/>
         </mxCell>
-        <!-- Security Group Container -->
-        <mxCell id="{{subnet_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" vertex="1" connectable="0" parent="{{subnet_cell.group.id}}">
+        <!-- Subnet Container -->
+        <mxCell id="{{subnet_cell.container.id}}" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" vertex="1" connectable="0" parent="{{subnet_cell.group.id}}">
             <mxGeometry width="{{subnet_cell.container.width}}" height="{{subnet_cell.container.height}}" as="geometry"/>
         </mxCell>
-        <!-- Security Group Description Text -->
+        <!-- Subnet Description Text -->
         <mxCell id="{{subnet_cell.description_text.id}}" value="{{subnet_cell.description_text.value}}" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="{{subnet_cell.group.id}}">
             <mxGeometry x="{{subnet_cell.description_text.xpos}}" y="{{subnet_cell.description_text.ypos}}" width="{{subnet_cell.description_text.width}}" height="{{subnet_cell.description_text.height}}" as="geometry"/>
         </mxCell>

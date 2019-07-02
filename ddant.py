@@ -1,6 +1,7 @@
 import boto3
 import click
 import html
+import json
 import random
 import string
 
@@ -35,7 +36,9 @@ class cell:
         ypos=0,
         height=0,
         width=0,
-        template_path=""
+        template_path="",
+        additional_data = {},
+        target="",
     ):
         self.id = "{}-{}".format(randomStringDigits(), count)
         self.value = self.render_value(value, template_path)
@@ -44,6 +47,8 @@ class cell:
         self.height = height
         self.width = width
         self.template_path = template_path
+        self.additional_data = additional_data
+        self.target = target
 
     def get(self):
         return {
@@ -52,7 +57,10 @@ class cell:
             "xpos": self.xpos,
             "ypos": self.ypos,
             "height": self.height,
-            "width": self.width
+            "width": self.width,
+            "additional_data": self.additional_data,
+            "source": self.id,
+            "target": self.target
         }
 
     def render_value(self, value, template_path):
@@ -291,7 +299,8 @@ def generage_route_table_cells(route_tables):
             ypos=40,
             width=710,
             height=110,
-            template_path='Route_Description.html'
+            template_path='Route_Description.html',
+            additional_data=route
             ).get()
 
         route_table_cell = cell(
@@ -324,7 +333,7 @@ def describe_subnets(**kwargs):
     return response['Subnets']
 
 
-def generate_subnet_cells(subnets):
+def generate_subnet_cells(subnets, route_table_cells):
     """Generate subnet cells."""
     count = 0
     xpos = 0
@@ -356,33 +365,57 @@ def generate_subnet_cells(subnets):
             ypos=40,
             width=710,
             height=110,
-            template_path='Subnet_Description.html'
+            template_path='Subnet_Description.html',
+            additional_data=subnet
             ).get()
+
+        for route_cell in route_table_cells:
+            for association in route_cell['description_text']['additional_data']['Associations']:
+                try:
+                    if association['SubnetId'] == subnet['SubnetId']:
+                        route_table_arrow = cell(
+                            count=count,
+                            xpos=30,
+                            ypos=180,
+                            width=440,
+                            height=260,
+                            target=route_cell['group']['id']
+                            ).get()
+                except KeyError:
+                    continue
 
         subnet_cell = {
             "group": group_cell,
             "container": container_cell,
-            "description_text": description_text_cell
+            "description_text": description_text_cell,
+            "arrow": route_table_arrow
         }
         subnet_cells.append(subnet_cell)
 
     return subnet_cells
 
+
 def render_drawing(**kwargs):
     """Renders Completed Drawing."""
 
+    security_group_cells = wrap_cells(generate_sgs_cells(
+        describe_security_groups(**kwargs)))
+
+    nacl_cells = generate_nacl_cells(describe_network_acls(**kwargs))
+
+    route_table_cells = generage_route_table_cells(describe_routes(**kwargs))
+
+    subnet_cells = generate_subnet_cells(
+        describe_subnets(**kwargs),
+        route_table_cells=route_table_cells
+        )
+
     template = render_template(
-
         'DrawioTemplate.xml',
-
-        security_group_cells=wrap_cells(generate_sgs_cells(
-        describe_security_groups(**kwargs))),
-
-        nacl_cells=generate_nacl_cells(describe_network_acls(**kwargs)),
-
-        route_table_cells=generage_route_table_cells(describe_routes(**kwargs)),
-
-        subnet_cells=generate_subnet_cells(describe_subnets(**kwargs))
+        security_group_cells=security_group_cells,
+        nacl_cells=nacl_cells,
+        route_table_cells=route_table_cells,
+        subnet_cells=subnet_cells
         )
     return template
 
