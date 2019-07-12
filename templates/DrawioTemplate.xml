@@ -99,6 +99,16 @@
         </mxCell>
         <!--start NACL -->
         {% for nacl in nacl_cells %}
+        {% if 'arrow' in nacl %}
+        <!--Arrow from NACL to route table-->
+        <mxCell id="{{nacl.arrow.id}}" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="{{nacl.group.id}}" target="{{nacl.arrow.target}}">
+            <mxGeometry width="50" height="50" relative="1" as="geometry">
+                <mxPoint x="463.5" y="206" as="sourcePoint"/>
+                <mxPoint x="513.5" y="156" as="targetPoint"/>
+            </mxGeometry>
+        </mxCell>
+        <!-- End arrow from NACL to route table -->
+        {% endif %}
         <mxCell id="{{nacl.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
             <mxGeometry x="{{nacl.group.xpos}}" y="{{nacl.group.ypos}}" width="{{nacl.group.width}}" height="{{nacl.group.height}}" as="geometry"/>
         </mxCell>
@@ -165,14 +175,16 @@
         <!-- End of Security Groups -->
         <!-- Start Subnets -->
         {% for subnet_cell in subnet_cells %}
-        <!--Arrow from subnet to route table-->
+        {% if 'arrow' in subnet_cell %}
+        <!--Arrow from subnet to NACL-->
         <mxCell id="{{subnet_cell.arrow.id}}" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="{{subnet_cell.group.id}}" target="{{subnet_cell.arrow.target}}">
             <mxGeometry width="50" height="50" relative="1" as="geometry">
                 <mxPoint x="463.5" y="206" as="sourcePoint"/>
                 <mxPoint x="513.5" y="156" as="targetPoint"/>
             </mxGeometry>
         </mxCell>
-        <!-- End route table arrow -->
+        <!-- End arrow from subnet to NACL -->
+        {% endif %}
         <mxCell id="{{subnet_cell.group.id}}" value="" style="group" vertex="1" connectable="0" parent="1">
             <mxGeometry x="{{subnet_cell.group.xpos}}" y="{{subnet_cell.group.ypos}}" width="{{subnet_cell.group.width}}" height="{{subnet_cell.group.height}}" as="geometry"/>
         </mxCell>

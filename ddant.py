@@ -27,6 +27,11 @@ def render_template(file, **variables):
     return template.render(**variables)
 
 
+def json_pretty_print(json_obj):
+    """Return pretty printed JSON obj."""
+    return json.dumps(json_obj, indent=4, separators=(',', ': '))
+
+
 class cell:
     def __init__(
         self,
@@ -37,10 +42,11 @@ class cell:
         height=0,
         width=0,
         template_path="",
-        additional_data = {},
+        additional_data={},
         target="",
     ):
         self.id = "{}-{}".format(randomStringDigits(), count)
+        self.count = count
         self.value = self.render_value(value, template_path)
         self.xpos = xpos
         self.ypos = ypos
@@ -53,6 +59,7 @@ class cell:
     def get(self):
         return {
             "id": self.id,
+            "count": self.count,
             "value": self.value,
             "xpos": self.xpos,
             "ypos": self.ypos,
@@ -142,7 +149,8 @@ def generate_sgs_cells(security_groups):
             ypos=40,
             width=890,
             height=110,
-            template_path='SG_Description.html'
+            template_path='SG_Description.html',
+            additional_data=security_group
             ).get()
 
         inbound_rules_cell = cell(
@@ -222,7 +230,8 @@ def generate_nacl_cells(network_acls):
             ypos=40,
             width=930,
             height=110,
-            template_path='NACL_Description.html'
+            template_path='NACL_Description.html',
+            additional_data=nacl
             ).get()
 
         inbound_rules_cell = cell(
@@ -256,6 +265,37 @@ def generate_nacl_cells(network_acls):
         nacl_cells.append(nacl_cell)
 
     return nacl_cells
+
+
+def get_nacl_to_route_table_association(nacl_cells, route_table_cells):
+    """Creates an arrow between NACLs and RouteTables."""
+    updated_nacl_cells = []
+
+    # iterate over each NACL cell
+    for nacl_cell in nacl_cells:
+        # reference the AWS provided json object within the description_text of the cell
+        nacl_associations = nacl_cell['description_text']['additional_data']['Associations']
+        # iterate over each route table cell
+        for route_table_cell in route_table_cells:
+            # reference the AWS provided json object within the description_text of the cell
+            for rt_association in route_table_cell['description_text']['additional_data']['Associations']:
+                for nacl_association in nacl_associations:
+                    try:
+                        rt_association_subnet = rt_association['SubnetId']
+                    except KeyError:
+                        rt_association_subnet = ""
+                    if rt_association_subnet == nacl_association['SubnetId']:
+                        arrow_to_route_table = cell(
+                            count=999,
+                            xpos=30,
+                            ypos=180,
+                            width=440,
+                            height=260,
+                            target=route_table_cell['group']['id']
+                            ).get()
+                        nacl_cell.update({"arrow": arrow_to_route_table})
+        updated_nacl_cells.append(nacl_cell)
+    return updated_nacl_cells
 
 
 def describe_routes(**kwargs):
@@ -317,7 +357,7 @@ def generage_route_table_cells(route_tables):
             "group": group_cell,
             "container": container_cell,
             "description_text": description_text_cell,
-            "routes": route_table_cell,
+            "routes": route_table_cell
         }
         route_table_cells.append(route_table_cell)
 
@@ -333,7 +373,7 @@ def describe_subnets(**kwargs):
     return response['Subnets']
 
 
-def generate_subnet_cells(subnets, route_table_cells):
+def generate_subnet_cells(subnets):
     """Generate subnet cells."""
     count = 0
     xpos = 0
@@ -369,30 +409,36 @@ def generate_subnet_cells(subnets, route_table_cells):
             additional_data=subnet
             ).get()
 
-        for route_cell in route_table_cells:
-            for association in route_cell['description_text']['additional_data']['Associations']:
-                try:
-                    if association['SubnetId'] == subnet['SubnetId']:
-                        route_table_arrow = cell(
-                            count=count,
-                            xpos=30,
-                            ypos=180,
-                            width=440,
-                            height=260,
-                            target=route_cell['group']['id']
-                            ).get()
-                except KeyError:
-                    continue
-
         subnet_cell = {
             "group": group_cell,
             "container": container_cell,
-            "description_text": description_text_cell,
-            "arrow": route_table_arrow
+            "description_text": description_text_cell
         }
         subnet_cells.append(subnet_cell)
 
     return subnet_cells
+
+
+def get_subnet_to_nacl_association(subnet_cells, nacl_cells):
+    """Creates an arrow between Subnets and NACLs."""
+    updated_subnet_cells = []
+
+    for subnet_cell in subnet_cells:
+        subnet_id = subnet_cell['description_text']['additional_data']['SubnetId']
+        for nacl_cell in nacl_cells:
+            for association in nacl_cell['description_text']['additional_data']['Associations']:
+                if association['SubnetId'] == subnet_id:
+                    arrow_to_nacl = cell(
+                        count=999,
+                        xpos=30,
+                        ypos=180,
+                        width=440,
+                        height=260,
+                        target=nacl_cell['group']['id']
+                        ).get()
+                    subnet_cell.update({"arrow": arrow_to_nacl})
+        updated_subnet_cells.append(subnet_cell)
+    return updated_subnet_cells
 
 
 def render_drawing(**kwargs):
@@ -405,17 +451,19 @@ def render_drawing(**kwargs):
 
     route_table_cells = generage_route_table_cells(describe_routes(**kwargs))
 
-    subnet_cells = generate_subnet_cells(
-        describe_subnets(**kwargs),
-        route_table_cells=route_table_cells
-        )
+    subnet_cells = generate_subnet_cells(describe_subnets(**kwargs))
+
+    associated_subnet_cells = (
+        get_subnet_to_nacl_association(subnet_cells, nacl_cells))
+    associated_nacl_cells = (
+        get_nacl_to_route_table_association(nacl_cells, route_table_cells))
 
     template = render_template(
         'DrawioTemplate.xml',
         security_group_cells=security_group_cells,
-        nacl_cells=nacl_cells,
+        nacl_cells=associated_nacl_cells,
         route_table_cells=route_table_cells,
-        subnet_cells=subnet_cells
+        subnet_cells=associated_subnet_cells
         )
     return template
 
@@ -424,11 +472,11 @@ def render_drawing(**kwargs):
 
 @click.command()
 @click.option("--vpc", prompt="Id of the Target VPC",
-              help="Number of greetings.")
+              help="Id of the Target VPC.")
 @click.option("--path", default="",
               help="Path of the rendered template.")
 def render(vpc, path):
-    """Simple program that greets NAME for a total of COUNT times."""
+    """Simple program that creates a draw.io diagram provided a targeted VPC id."""
     Filters = [
             {
                 'Name': 'vpc-id',
