@@ -50,7 +50,7 @@ There are other tools like [cloudcraft](https://cloudcraft.co/) that will do thi
 
 ## ToDo
 
-- [ ] associate the NACLs and route tables
+- [x] associate the NACLs and route tables
 - [ ] proper positioning
 - [ ] group security groups by subnet
 - [ ] dynamically size cells based on cell content (ie. long sg rule lists)
